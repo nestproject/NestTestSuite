@@ -1,5 +1,6 @@
 import Inquiline
 
-func application(environ:Environ) -> (Response) {
-    return ("200 OK", [], "Hello World")
+public func application(environ:Environ) -> (Response) {
+  return ("200 OK", [], "Hello World")
 }
+
