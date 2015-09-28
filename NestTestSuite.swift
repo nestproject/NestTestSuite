@@ -1,6 +1,8 @@
 import Inquiline
+import Nest
 
-public func application(environ:Environ) -> (Response) {
-  return ("200 OK", [], "Hello World")
+
+public func application(request:Request) -> ResponseType {
+  return Response(.Ok, body: "Hello World")
 }
 
