@@ -7,5 +7,26 @@ to test their implementation.
 
 ## Status
 
-This test suite is incomplete and is missing a test runner.
+This test suite is incomplete and there are various improvements to be made.
 
+### Usage
+
+You can build the test runner with SPM:
+
+```shell
+$ swift build
+```
+
+Once you've built it, you will need to serve application inside
+`application.swift` from your HTTP server.
+
+When you have the application running with your HTTP server, you can then run
+the test suite as follows:
+
+```shell
+$ ./.build/debug/NestTestSuite --host http://localhost:8080 Features/*.feature
+-> Basic Nest compliance
+  -> Performing a simple GET request
+
+  1 scenarios passed, 0 scenarios failed.
+```
