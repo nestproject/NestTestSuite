@@ -37,4 +37,19 @@ suite.then("^I should have a (\\d\\d\\d) response$") { match in
 }
 
 
+suite.then("^I should see the header '(.*)' with the value '(.*)'") { match in
+  let key = match.groups[1]
+  let value = match.groups[2]
+
+  try expect(response?[key]) == value
+}
+
+
+suite.then("^The contents of the body should be '(.*)'") { match in
+  let body = match.groups[1]
+
+  try expect(response?.body) == body
+}
+
+
 suite.run()

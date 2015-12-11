@@ -3,5 +3,5 @@ import Nest
 
 
 public func application(request: RequestType) -> ResponseType {
-  return Response(.Ok, body: "Hello World")
+  return Response(.Ok, contentType: "text/plain", body: "Hello World")
 }
