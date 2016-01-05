@@ -18,7 +18,7 @@ $ swift build
 ```
 
 Once you've built it, you will need to serve application inside
-`application.swift` from your HTTP server.
+`Server/application.swift` from your HTTP server.
 
 When you have the application running with your HTTP server, you can then run
 the test suite as follows:
