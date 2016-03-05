@@ -31,6 +31,15 @@ suite.when("^I make a ([A-Z]+) request to (.+)$") { match in
 }
 
 
+suite.when("^I make a ([A-Z]+) request with body '(.*)' to (.+)$") { match in
+  let method = match.groups[1]
+  let body = match.groups[2]
+  let path = match.groups[3]
+  let url = "\(suite.base)\(path)"
+  response = try request(method: method, url: url, body: body)
+}
+
+
 suite.then("^I should have a (\\d\\d\\d) response$") { match in
   let status = Int(match.groups[1])!
   try expect(response?.status.rawValue) == status

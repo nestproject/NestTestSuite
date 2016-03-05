@@ -3,5 +3,10 @@ import Nest
 
 
 public func application(request: RequestType) -> ResponseType {
-  return Response(.Ok, contentType: "text/plain", body: "Hello World")
+  switch request.method {
+  case "POST":
+    return Response(.Ok, contentType: "text/plain", body: "Hello " + request.body!)
+  default:
+    return Response(.Ok, contentType: "text/plain", body: "Hello World")
+  }
 }
