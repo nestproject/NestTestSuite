@@ -12,3 +12,6 @@ Feature: Basic Nest compliance
          When I make a GET request to /hello
          Then The contents of the body should be 'Hello World'
 
+    Scenario: Response body (POST)
+         When I make a POST request with body 'Swift' to /hello
+         Then The contents of the body should be 'Hello Swift'
