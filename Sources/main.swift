@@ -57,7 +57,15 @@ suite.then("^I should see the header '(.*)' with the value '(.*)'") { match in
 suite.then("^The contents of the body should be '(.*)'") { match in
   let body = match.groups[1]
 
-  try expect(response?.body) == body
+  guard var payload = response?.body else {
+      throw failure("response has no payload")
+  }
+  var buffer = [CChar]()
+  while let chunk = payload.next() {
+      buffer.appendContentsOf(chunk.map({ CChar($0) }))
+  }
+  buffer.append(0)
+  try expect(String.fromCString(buffer)) == body
 }
 
 
